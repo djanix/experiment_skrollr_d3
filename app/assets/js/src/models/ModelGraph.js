@@ -27,7 +27,7 @@ define([
 		layers1: null,
 
 		width: $(window).width(),
-		height: 500,
+		height: $(window).height(),
 
 		x: null,
 		y: null,

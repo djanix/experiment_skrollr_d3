@@ -21,7 +21,7 @@ define([
 		//--------------------------------------------------------------
 		particleCount: 20,
 		w: $(window).width(),
-		h: 500,
+		h: $(window).height(),
 		z: d3.scale.category20c(),
 		i: 0,
 		svg: null,

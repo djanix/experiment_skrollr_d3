@@ -59,7 +59,7 @@ define([
 				self.graph.transition();
 				self.particles.updateParticles(self.scrollPosition);
 
-				self.progress.updateProgress(self.calculatePercent(self.scrollPosition, 1500, 2000));
+				self.progress.updateProgress(self.calculatePercent(self.scrollPosition, 1600, 2000));
 			});
 		},
 

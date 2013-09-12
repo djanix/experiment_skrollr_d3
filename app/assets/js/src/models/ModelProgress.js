@@ -19,11 +19,10 @@ define([
 
 		//-- Vars
 		//--------------------------------------------------------------
-		width: 960,
-		height: 500,
+		width: $(window).width(),
+		height: $(window).height(),
 		twoPi: 2 * Math.PI,
 		progress: 0,
-		total: 1308573, // must be hard-coded if server doesn't report Content-Length
 		formatPercent: d3.format(".0%"),
 
 		arc: null,
@@ -36,11 +35,18 @@ define([
 		//----------------------------------------------------------------
 		init: function() {
 			var self = this;
+			var radius = self.height / 3;
+
+			if (self.width < self.height) {
+				radius = self.width / 3;
+			}
+
+			var innerRadius = radius*0.8;
 
 			self.arc = d3.svg.arc()
 				.startAngle(0)
-				.innerRadius(180)
-				.outerRadius(240);
+				.innerRadius(innerRadius)
+				.outerRadius(radius);
 
 			self.svg = d3.select("#page4").append("svg")
 				.attr("width", self.width)
