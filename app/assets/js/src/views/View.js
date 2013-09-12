@@ -1,5 +1,7 @@
 define([
-
+	'jquery',
+	'mootools',
+	'class.mutators'
 ], function () {
 	var className = 'View';
 
