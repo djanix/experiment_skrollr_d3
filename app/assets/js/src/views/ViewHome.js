@@ -60,6 +60,9 @@ define([
 				self.particles.updateParticles(self.scrollPosition);
 
 				self.progress.updateProgress(self.calculatePercent(self.scrollPosition, 1600, 2000));
+
+				var animNumber = self.runningAnim(self.scrollPosition, 30);
+				$('.running_man span').removeClass().addClass('anim_' + animNumber);
 			});
 		},
 
@@ -73,6 +76,13 @@ define([
 			} else {
 				return((itemPos - min) / divide);
 			}
+		},
+
+		runningAnim: function(scrollValue, animMaxVal) {
+			if (scrollValue > 3200) { return animMaxVal - 1; }
+			if (scrollValue < 2600) { return 0; }
+			var imageId = Math.ceil((scrollValue - 2600) / 10) % animMaxVal;
+			return imageId;
 		},
 
 		empty: null
